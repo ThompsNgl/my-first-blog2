@@ -12,7 +12,9 @@
     <body background="/static/imagesku/nature-background-of-a-grassy-landscape.jpg">
         <div align="center" class="page-header">
             <div align="right">
-                <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus">add post</span></a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus">add post</span></a>
+                {% endif %}
             </div>
             <div>
                 <h1>Welcome to Thompson Spaces</h1>
