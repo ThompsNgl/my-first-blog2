@@ -8,20 +8,20 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
-    <body>
-        <div align="center">
+    <body background="/static/imagesku/nature-background-of-a-grassy-landscape.jpg">
+        <div align="center" class="page-header">
             <div>
-                <p>Welcome to Thompson Spaces</p>
+                <h1>Welcome to Thompson Spaces</h1>
             </div>
             <div>
                 <img src="/static/imagesku/thompson.JPG" alt="Thompson Picture" style="width:304px;height:228px;">
             </div>
         </div>
-        <div>
+        <div class="post">
             <p><a href="admin/">Add more post</a></p>
         </div>
 
-        <div>
+        <div class="post">
            <table style="width:35%">
                 <tr>
                     <th>Title Post</th>
@@ -37,7 +37,7 @@
         </div>
 
         {% for post in posts %}
-        <div>
+        <div class="post">
             <div>
                 <p>Published: {{ post.published_date }}</p>
             </div>

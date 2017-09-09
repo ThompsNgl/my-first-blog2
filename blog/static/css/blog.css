@@ -1,9 +1,16 @@
 body {
-    background-color: lightblue;
+    background-color: #E0FFFF;
+    background-attachment: fixed;
 }
 
 h2 a {
     color: #9008000;
+    font-family: 'Lobster';
+}
+
+h2 a {
+    color: #9008000;
+    font-family: 'Lobster';
 }
 
 h3 a {
@@ -26,4 +33,14 @@ table {
 
 th {
     height: 50px;
+}
+
+.page-header {
+    background-color: #90EE90;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+.post {
+    margin-bottom: 70px;
 }
