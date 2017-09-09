@@ -1,0 +1,8 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <a href="{% url 'post_list' %}" class="top-menu">Back To Top Menu</a>
+    <div>
+        <p>Post with title {{ post.title }} was successfully deleted</p>
+    </div>
+{% endblock %}
