@@ -14,7 +14,21 @@
             </div>
         </div>
         <div>
-            <h1><a href="https://github.com/ThompsNgl/my-first-blog2">Project Repository</a></h1>
+            <p><a href="admin/">Add more post</a></p>
+        </div>
+        {% for post in posts %}
+        <div>
+            <div>
+                <p>Published: {{ post.published_date }}</p>
+            </div>
+            <div>
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </div>
+        </div>
+        {% endfor %}
+        <div>
+            <h3><a href="https://github.com/ThompsNgl/my-first-blog2">Project Repository</a></h3>
             <p>Link to "Thompson Spaces" project repository</p>
         </div>
     </body>
