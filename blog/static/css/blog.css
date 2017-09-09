@@ -3,12 +3,7 @@ body {
     background-attachment: fixed;
 }
 
-h2 a {
-    color: #9008000;
-    font-family: 'Lobster';
-}
-
-h2 a {
+h1 a {
     color: #9008000;
     font-family: 'Lobster';
 }

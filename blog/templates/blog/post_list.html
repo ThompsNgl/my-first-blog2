@@ -1,55 +1,30 @@
-<!DOCTYPE html>
-{% load staticfiles %}
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Thompson Spaces</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-    </head>
-    <body background="/static/imagesku/nature-background-of-a-grassy-landscape.jpg">
-        <div align="center" class="page-header">
-            <div>
-                <h1>Welcome to Thompson Spaces</h1>
-            </div>
-            <div>
-                <img src="/static/imagesku/thompson.JPG" alt="Thompson Picture" style="width:304px;height:228px;">
-            </div>
-        </div>
-        <div class="post">
-            <p><a href="admin/">Add more post</a></p>
-        </div>
+{% extends 'blog/base.html' %}
 
-        <div class="post">
-           <table style="width:35%">
-                <tr>
-                    <th>Title Post</th>
-                    <th style="text-align:center">Publish Date</th>
-                </tr>
-               {% for post in posts %}
-                <tr>
-                    <td>{{ post.title }}</td>
-                    <td align="center">{{ post.published_date }}</td>
-                </tr>
-               {% endfor %}
-            </table>
-        </div>
-
-        {% for post in posts %}
-        <div class="post">
-            <div>
-                <p>Published: {{ post.published_date }}</p>
-            </div>
-            <div>
-                <h2><a href="">{{ post.title }}</a></h2>
-                <p>{{ post.text|linebreaksbr }}</p>
-            </div>
-        </div>
-        {% endfor %}
+{% block content %}
+   <!-- {% for post in posts %}
+    <div class="post">
         <div>
-            <h3><a href="https://github.com/ThompsNgl/my-first-blog2">Project Repository</a></h3>
-            <p>Link to "Thompson Spaces" project repository</p>
+            <p>Published: {{ post.published_date }}</p>
         </div>
-    </body>
-</html>
+        <div>
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+    </div>
+    {% endfor %} -->
+
+    <div class="post">
+        <table style="width:35%">
+            <tr>
+                <th>Title Post</th>
+                <th style="text-align:center">Publish Date</th>
+            </tr>
+            {% for post in posts %}
+            <tr>
+                <td><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></td>
+                <td align="center">{{ post.published_date }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
