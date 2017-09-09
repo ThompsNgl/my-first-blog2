@@ -1,0 +1,29 @@
+body {
+    background-color: lightblue;
+}
+
+h2 a {
+    color: #9008000;
+}
+
+h3 a {
+    color: #6B0D75;
+}
+
+p {
+    font-family: Purisa;
+    font-size: 15px;
+}
+
+table, td, th {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    height: 50px;
+}

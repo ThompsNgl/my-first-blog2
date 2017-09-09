@@ -1,11 +1,15 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>Thompson Spaces</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
     <body>
-        <div>
+        <div align="center">
             <div>
                 <p>Welcome to Thompson Spaces</p>
             </div>
@@ -16,13 +20,29 @@
         <div>
             <p><a href="admin/">Add more post</a></p>
         </div>
+
+        <div>
+           <table style="width:35%">
+                <tr>
+                    <th>Title Post</th>
+                    <th style="text-align:center">Publish Date</th>
+                </tr>
+               {% for post in posts %}
+                <tr>
+                    <td>{{ post.title }}</td>
+                    <td align="center">{{ post.published_date }}</td>
+                </tr>
+               {% endfor %}
+            </table>
+        </div>
+
         {% for post in posts %}
         <div>
             <div>
                 <p>Published: {{ post.published_date }}</p>
             </div>
             <div>
-                <h2>{{ post.title }}</h2>
+                <h2><a href="">{{ post.title }}</a></h2>
                 <p>{{ post.text|linebreaksbr }}</p>
             </div>
         </div>
