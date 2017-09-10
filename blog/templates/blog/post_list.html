@@ -1,17 +1,6 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-   <!-- {% for post in posts %}
-    <div class="post">
-        <div>
-            <p>Published: {{ post.published_date }}</p>
-        </div>
-        <div>
-            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-            <p>{{ post.text|linebreaksbr }}</p>
-        </div>
-    </div>
-    {% endfor %} -->
     <div class="post">
         <p><a href="admin/">Add Post For Admin</a></p>
     </div>
@@ -31,8 +20,10 @@
             </tr>
             {% for post in posts %}
             <tr>
+                {% if post.published_date %}
                 <td><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></td>
                 <td align="center">{{ post.published_date }}</td>
+                {% endif %}
             </tr>
             {% endfor %}
         </table>

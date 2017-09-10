@@ -2,18 +2,15 @@
 
 {% block content %}
     <div class="post">
-        <a href="{% url 'post_list' %}" class="top-menu">Back To Top Menu</a>
         <table style="width:35%">
             <tr>
                 <th>Title Post</th>
-                <th style="text-align:center">Publish Date</th>
+                <th style="text-align:center">Created Date</th>
             </tr>
             {% for post in posts %}
             <tr>
-                {% if post.published_date %}
                 <td><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></td>
-                <td align="center">{{ post.published_date }}</td>
-                {% endif %}
+                <td align="center">{{ post.created_date|date:'d-m-Y' }}</td>
             </tr>
             {% endfor %}
         </table>
