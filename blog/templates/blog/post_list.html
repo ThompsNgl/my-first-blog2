@@ -16,6 +16,14 @@
         <p><a href="admin/">Add Post For Admin</a></p>
     </div>
     <div class="post">
+        <form id="searchform" action="{% url 'post_search' %}" method="GET" accept-charset="utf-8">
+            <button class="searchbutton" type="submit">
+                <i class="fa fa-search">Search</i>
+            </button>
+            <input class="searchfield" id="searchbox" name="q" type="text" placeholder="Title or Author">
+        </form>
+    </div>
+    <div class="post">
         <table style="width:35%">
             <tr>
                 <th>Title Post</th>

@@ -1,12 +1,26 @@
+from functools import reduce
+from django.db.models.lookups import Lookup
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post
+from django.db.models import Q
 from .form import PostForm
 from django.utils import timezone
+from django.views.generic import ListView
+import operator
 
 # Create your views here.
 
 def post_list(request):
     posts = Post.objects.order_by('published_date')
+    if request.method == "GET":
+        query = request.GET.get('q')
+        if query:
+            query_list = query.split()
+            posts = posts.filter(
+                reduce(operator.and_, (Q(title__icontains=q) for q in query_list)) |
+                reduce(operator.and_, (Q(author__username__icontains=q) for q in query_list))
+            )
+            return render(request, 'blog/post_search.html', {'posts': posts})
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 def post_detail(request, pk):
@@ -44,3 +58,4 @@ def post_delete(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.delete()
     return render(request, 'blog/post_delete.html', {'post': post})
+
